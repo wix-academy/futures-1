@@ -3,10 +3,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wix</groupId>
-    <artifactId>async-workshop</artifactId>
+    <artifactId>futures-katas</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Async Workshop</name>
+    <name>Futures Katas</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
