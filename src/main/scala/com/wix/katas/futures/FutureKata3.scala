@@ -8,5 +8,7 @@ trait FutureKata3 extends Blog {
 
   // Invoke "getPost" for all elements of "postIds" concurrently.
   // "Fail fast", that is fail if any of the "getPost" invocations fails.
-  def getPostAuthors(postIds: List[PostId])(implicit ec: ExecutionContext): Future[List[String]] = ???
+  def getPostAuthors(postIds: List[PostId])(implicit ec: ExecutionContext): Future[List[String]] = {
+    Future.traverse(postIds)(postId => getPost(postId).map(_.author))
+  }
 }

@@ -9,5 +9,7 @@ trait FutureKata4 extends Blog {
 
   // Invoke "getPost" for all elements of "postIds" concurrently and
   // accumulate the results of all "getPost" invocations and return these results
-  def getPostAuthors(postIds: List[PostId])(implicit ec: ExecutionContext): Future[List[Try[String]]] = ???
+  def getPostAuthors(postIds: List[PostId])(implicit ec: ExecutionContext): Future[List[Try[String]]] = {
+    Future.traverse(postIds)(postId => getPost(postId).map(_.author).transformWith(Future.successful))
+  }
 }
